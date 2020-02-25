@@ -10,6 +10,14 @@ module.exports = {
   },
   plugins: [
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'uploads',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -76,6 +84,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
+    'gatsby-plugin-sass',
     `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-plugin-graphql-codegen',
@@ -83,5 +92,19 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`
       }
     },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.ts`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+      options: {
+        develop: true, // Activates purging in npm run develop
+        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
+      },
+    }, // must be after other CSS plugins
+    'gatsby-plugin-netlify',
   ],
 }
