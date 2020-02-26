@@ -14,6 +14,7 @@ class TagRoute extends React.Component {
         </Link>
       </li>
     ))
+    const location = this.props.location
     const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
@@ -22,7 +23,7 @@ class TagRoute extends React.Component {
     } tagged with “${tag}”`
 
     return (
-      <Layout>
+      <Layout location={location} title={title}>
         <section className="section">
           <Helmet title={`${tag} | ${title}`} />
           <div className="container content">
