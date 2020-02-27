@@ -1,13 +1,20 @@
-import React from "react"
+import * as React from 'react'
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { BlogPostBySlugQuery } from "../../types/graphql-types"
+import { BlogPostPageContext } from '../../gatsby-node/index'
 
+type Props = {
+  data: BlogPostBySlugQuery,
+  pageContext: BlogPostPageContext,
+  location: any
+}
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext

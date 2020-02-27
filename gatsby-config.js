@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: "ys-0-sy Tech Log",
