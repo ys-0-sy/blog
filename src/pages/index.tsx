@@ -18,8 +18,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
+      <SEO title="" />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -46,6 +45,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
           </article>
         )
       })}
+      <Bio />
     </Layout>
   )
 }
