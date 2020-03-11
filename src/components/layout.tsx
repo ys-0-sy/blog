@@ -3,7 +3,13 @@ import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
 
-const Layout = ({ location, title, children }) => {
+type Props = {
+  location: Location
+  title: string
+  children?: React.ReactNode
+}
+
+const Layout: React.FC<Props> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
@@ -61,9 +67,7 @@ const Layout = ({ location, title, children }) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        © {new Date().getFullYear()}, ys-0-sy. All rights reserved.
       </footer>
     </div>
   )

@@ -64,12 +64,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-104576288-2",
-      },
-    },
-    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Gatsby Starter Blog",
