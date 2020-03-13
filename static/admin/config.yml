@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ys-0-sy/blog
   branch: master
+  base_url: https://spiral-wandering-spirit.glitch.me
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
