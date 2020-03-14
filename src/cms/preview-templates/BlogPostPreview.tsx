@@ -8,7 +8,7 @@ type Props = {
 
 
 const BlogPostPreview:React.FC<Props> = ({ entry, widgetFor }) => {
-  const tags = entry.getIn(['data', 'tags'])
+  //const tags = entry.getIn(['data', 'tags'])
   const previewData = {
     site: {
       siteMetadata: {
@@ -16,13 +16,18 @@ const BlogPostPreview:React.FC<Props> = ({ entry, widgetFor }) => {
       },
     },
     markdownRemark: {
+      html: widgetFor('body'),
       frontmatter: {
         title: String(entry.getIn(["data", "title"])),
+        date: String(entry.getIn(["data", "date"])),
+        description: String(entry.getIn(['data', 'description']))
+
       },
     },
   }
   const location = ''
   const pageContext = ''
+  console.log(entry)
   return (
     <BlogPostTemplate
       data={previewData}
