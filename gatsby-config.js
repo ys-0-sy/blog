@@ -3,8 +3,8 @@ module.exports = {
   siteMetadata: {
     title: "ys-0-sy Tech Log",
     author: "ys-0-sy",
-    description: "A starter blog demonstrating what Gatsby can do.",
-    siteUrl: "https://gatsby-starter-blog-demo.netlify.com/",
+    description: "ys-0-sy Tech Blog",
+    siteUrl: "https://blog.ys-0-sy.dev",
     social: {
       twitter: "ys_0_sy",
     },
@@ -66,8 +66,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Starter Blog",
-        short_name: "GatsbyJS",
+        name: "ys-0-sy Tech Log",
+        short_name: "TechLog",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#663399",
@@ -108,4 +108,4 @@ module.exports = {
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify",
   ],
-};
+}

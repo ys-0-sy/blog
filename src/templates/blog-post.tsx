@@ -11,7 +11,7 @@ import { BlogPostPageContext } from '../../gatsby-node/index'
 type Props = {
   data: BlogPostBySlugQuery,
   pageContext: BlogPostPageContext,
-  location: any
+  location: Location
 }
 
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
