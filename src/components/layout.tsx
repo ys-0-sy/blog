@@ -51,8 +51,9 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
               color: `inherit`,
             }}
             to={`/`}
-          ></Link>
-            {title}
+          >
+                {title}
+              </Link>
         </Typography>
         <div className={classes.search}>
           <div className={classes.searchIcon}>

@@ -33,12 +33,14 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
                   {title}
                 </Link>
               </h3>
+
+              <img src={node.frontmatter.featuredimage.absolutePath} />
               <small>{node.frontmatter.date}</small>
             </header>
             <section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.excerpt,
                 }}
               />
             </section>
@@ -68,6 +70,9 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            featuredimage {
+              absolutePath
+            }
           }
         }
       }
