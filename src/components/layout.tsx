@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import {AppBar, Toolbar, IconButton, Typography, InputBase} from '@material-ui/core'
+import Bio from "./bio"
+import {AppBar, Toolbar, Typography, InputBase, Container, Divider} from '@material-ui/core'
 import { fade, makeStyles } from "@material-ui/core/styles"
 import SearchIcon from '@material-ui/icons/Search'
 
-import { rhythm, scale } from "../utils/typography"
 
 type Props = {
   location: Location
@@ -16,16 +16,11 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
   const classes = useStyles()
-
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
+  header = (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+      <Typography className={classes.title} variant="h6" noWrap>
         <Link
           style={{
             boxShadow: `none`,
@@ -34,61 +29,39 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
           }}
           to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-        <Typography className={classes.title} variant="h6" noWrap>
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-                {title}
-              </Link>
-        </Typography>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Search..."
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
-            }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
+              {title}
+            </Link>
+      </Typography>
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
+          <SearchIcon />
         </div>
-        </Toolbar>
-        </AppBar>
+        <InputBase
+          placeholder="Search..."
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput
+          }}
+          inputProps={{ 'aria-label': 'search' }}
+        />
       </div>
-    )
-  }
+      </Toolbar>
+      </AppBar>
+    </div>
+  )
   return (
     <div>
       <header>{header}</header>
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, ys-0-sy. All rights reserved.
-      </footer>
-    </div>
+      <Container fixed>
+        <Container className={classes.main}>
+          <main>{children}</main>
+        </Container>
+        <Divider className={classes.divider}/>
+        <footer className={classes.footer}>
+          <Bio />
+          © {new Date().getFullYear()}, ys-0-sy. All rights reserved.
+        </footer>
+      </Container>
     </div>
   )
 }
@@ -99,6 +72,17 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  divider: {
+    marginTop: 100,
+  },
+  footer: {
+    marginBottom: 40,
+    marginTop: 10,
+    marginLeft: 40,
+  },
+  main: {
+    marginTop: 30,
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -108,7 +92,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
-    color: 'white'
+    color: "white",
   },
   search: {
     position: "relative",

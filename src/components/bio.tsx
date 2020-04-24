@@ -39,8 +39,7 @@ const Bio = () => {
   return (
     <div
       style={{
-        display: `flex`,
-        marginTop: rhythm(2.5),
+        display: `flex`
       }}
     >
       <Image

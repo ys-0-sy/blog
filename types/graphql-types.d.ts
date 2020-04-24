@@ -2655,6 +2655,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___languageExtensions___language' |
   'pluginCreator___pluginOptions___languageExtensions___extend' |
   'pluginCreator___pluginOptions___ignoreFileExtensions' |
+  'pluginCreator___pluginOptions___checkSupportedExtensions' |
   'pluginCreator___pluginOptions___short_name' |
   'pluginCreator___pluginOptions___start_url' |
   'pluginCreator___pluginOptions___background_color' |
@@ -2899,6 +2900,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___languageExtensions___language' |
   'pluginOptions___languageExtensions___extend' |
   'pluginOptions___ignoreFileExtensions' |
+  'pluginOptions___checkSupportedExtensions' |
   'pluginOptions___short_name' |
   'pluginOptions___start_url' |
   'pluginOptions___background_color' |
@@ -3046,6 +3048,7 @@ export type SitePluginPluginOptions = {
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
   languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>;
   ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>;
+  checkSupportedExtensions?: Maybe<Scalars['Boolean']>;
   short_name?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
@@ -3081,6 +3084,7 @@ export type SitePluginPluginOptionsFilterInput = {
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>;
   ignoreFileExtensions?: Maybe<StringQueryOperatorInput>;
+  checkSupportedExtensions?: Maybe<BooleanQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;
@@ -3258,8 +3262,8 @@ export type IndexPagesQueryVariables = {};
 export type IndexPagesQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allMarkdownRemark: { edges: Array<{ node: (
         Pick<MarkdownRemark, 'excerpt'>
         & { fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter?: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description'>
-          & { featuredimage?: Maybe<Pick<File, 'absolutePath'>> }
+          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'tags' | 'description'>
+          & { featuredimage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> }
         )> }
       ) }> } };
 
