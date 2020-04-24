@@ -50,9 +50,6 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>
